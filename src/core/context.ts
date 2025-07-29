@@ -65,7 +65,7 @@ export default class Context {
 
   /**
    * @param ResolvedConfig
-   * configResolved hook  
+   * configResolved hook
    * Parsing user parameters and vite parameters
    */
 
@@ -201,7 +201,7 @@ export default class Context {
     const baseResult = await Promise.all(tasks);
     // biome-ignore lint/complexity/noForEach: <explanation>
     baseResult.forEach(({ originFileName, result }) => {
-      if (result) {
+      if (result && result.result && result.result.fileName) {
         fileNameMap.set(originFileName, result.result.fileName);
       }
     });
